@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -20,16 +21,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try {Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter your Numerator");
-            Double numerator = scanner.nextDouble();
-            System.out.println("Enter your Denominator");
-            Double denominator = scanner.nextDouble();
-            Double answer = numerator / denominator;
-            System.out.println(" Answer: " + answer);
+        while(true) {
+            try {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Enter your Numerator");
+                int numerator = scanner.nextInt();
+                System.out.println("Enter your Denominator");
+                int denominator = scanner.nextInt();
+                int answer = numerator / denominator;
+                System.out.println(" Answer: " + answer);
+
+                break;
+
+            }catch(ArithmeticException e) {
+                System.out.println("NEEDS WHOLE NUMBER");
+
+            }catch (InputMismatchException e) {
+                System.out.println("ERROR");
+            }
 
 
-        }catch(IllegalAccessException)
-
+        }
     }
 }
